@@ -5,8 +5,12 @@ import { useForm } from "react-hook-form";
 import { credentials, props } from "../types";
 import { login } from "../api";
 import { useState } from "react";
+import { joinClassNames } from "../utils/joinClassNames";
 
 function LoginForm({ setUser }: props) {
+  const passInputClasses = ["custom-input", "input-field"];
+  const emailInputClasses = ["custom-input", "validate-input"];
+  const buttonClasses = ["btn", "loading-btn"];
   const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
@@ -32,9 +36,9 @@ function LoginForm({ setUser }: props) {
       <form onSubmit={handleSubmit(onSubmit)}>
         <div className="input-group">
           <div
-            className={`${
-              errors.email ? "border-error" : ""
-            } custom-input validate-input`}
+            className={`${errors.email ? "border-error" : ""} ${joinClassNames(
+              emailInputClasses
+            )}`}
           >
             <input
               className="inside-input"
@@ -61,13 +65,13 @@ function LoginForm({ setUser }: props) {
           </div>
         </div>
         <input
-          className="custom-input input-field"
-          type="text"
+          className={joinClassNames(passInputClasses)}
+          type="password"
           placeholder="Password"
           {...register("password")}
         />
         {loading ? (
-          <button className="btn loading-btn">
+          <button className={joinClassNames(buttonClasses)}>
             <img className="loader" src={loadingIcon} />
           </button>
         ) : (

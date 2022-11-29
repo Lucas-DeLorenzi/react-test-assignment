@@ -61,6 +61,7 @@
   border-radius: 12px;
   border: none;
   color: #ffffff;
+  cursor: pointer;
 }
 
 .btn:active {
@@ -103,15 +104,28 @@
   border-radius: 12px;
 }
 
+input:focus {
+  color: rgba(29, 31, 38, 0.8);
+}
+
 .inside-input,
 .inside-input:focus,
-.inside-input:active {
+.inside-input:active,
+.inside-input {
   width: 100%;
   text-align: left;
   outline: transparent !important;
   background: transparent;
   border: 0 !important;
 }
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+  transition: background-color 5000s ease-in-out 0s;
+}
+
 .custom-input.validate-input {
   display: flex;
   justify-content: space-between;
