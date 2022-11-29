@@ -93,6 +93,10 @@
   flex-direction: column;
   justify-content: space-around;
   align-items: center;
+  width: 100%;
+}
+.form-container form {
+  width: inherit;
 }
 .custom-input {
   padding-left: 15px;
@@ -132,10 +136,6 @@ input:-webkit-autofill:active {
 }
 .input-group {
   margin-bottom: 10%;
-}
-
-.input-field {
-  margin-bottom: 15%;
 }
 
 .custom-input:hover,

@@ -1,20 +1,20 @@
 import icon from "/Arrow.svg";
-import cross from "/Cross.svg";
 import loadingIcon from "/loader.svg";
 import { useForm } from "react-hook-form";
 import { credentials, props } from "../types";
 import { login } from "../api";
 import { useState } from "react";
 import { joinClassNames } from "../utils/joinClassNames";
+import InputGroup from "./InputGroup";
 
 function LoginForm({ setUser }: props) {
-  const passInputClasses = ["custom-input", "input-field"];
-  const emailInputClasses = ["custom-input", "validate-input"];
+  const inputClasses = ["custom-input", "validate-input"];
   const buttonClasses = ["btn", "loading-btn"];
   const [loading, setLoading] = useState(false);
   const {
     handleSubmit,
     register,
+    setError,
     formState: { errors },
   } = useForm<credentials>({ mode: "all" });
 
@@ -24,6 +24,11 @@ function LoginForm({ setUser }: props) {
       .then((response) => {
         if (response.status === 401) {
           setUser(null);
+          setError("email", { type: "custom", message: "Invalid credentials" });
+          setError("password", {
+            type: "custom",
+            message: "Invalid credentials",
+          });
           return;
         }
         setUser(response);
@@ -34,41 +39,28 @@ function LoginForm({ setUser }: props) {
   return (
     <div className="form-container">
       <form onSubmit={handleSubmit(onSubmit)}>
-        <div className="input-group">
-          <div
-            className={`${errors.email ? "border-error" : ""} ${joinClassNames(
-              emailInputClasses
-            )}`}
-          >
-            <input
-              className="inside-input"
-              type="text"
-              placeholder="Email"
-              {...register("email", {
-                required: true,
-                pattern: /^\w+@\w+\.[a-zA-Z]+/,
-              })}
-            />
-            <img
-              className={`${
-                errors.email ? "show-error" : "hide-error"
-              } cross-icon`}
-              src={cross}
-            />
-          </div>
-          <div
-            className={`${
-              errors.email ? "show-error" : "hide-error"
-            } error-msg`}
-          >
-            {"Incorrect email"}
-          </div>
-        </div>
-        <input
-          className={joinClassNames(passInputClasses)}
-          type="password"
+        <InputGroup
+          errors={errors.email}
+          register={register}
+          placeholder="Email"
+          type="text"
+          errorMsg="Incorrect email"
+          inputClasses={inputClasses}
+          inputName="email"
+          registerValidation={{
+            required: true,
+            pattern: /^\w+@\w+\.[a-zA-Z]+/,
+          }}
+        />
+        <InputGroup
+          errors={errors.password}
+          register={register}
           placeholder="Password"
-          {...register("password")}
+          type="password"
+          errorMsg="Incorrect password"
+          inputClasses={inputClasses}
+          inputName="password"
+          registerValidation={null}
         />
         {loading ? (
           <button className={joinClassNames(buttonClasses)}>

@@ -4,8 +4,12 @@ export interface credentials {
 }
 
 export interface loginRes {
-  success: { status: number; data: { avatar: string; name: string }, error: string };
-  error: { status: number; data:{}, error: string };
+  success: {
+    status: number;
+    data: { avatar: string; name: string };
+    error: string;
+  };
+  error: { status: number; data: {}; error: string };
 }
 
 export interface user {
@@ -21,4 +25,20 @@ export interface props {
 export interface profileProps {
   setUser: props["setUser"];
   currentUser: { data: { avatar: string; name: string } };
+}
+
+export interface inputGroup {
+  errors: Partial<
+    FieldErrorsImpl<{
+      email: string;
+      password: string;
+    }>
+  >;
+  register: UseFormRegister<credentials>;
+  placeholder: string | undefined;
+  type: string;
+  errorMsg: string;
+  inputClasses: Array<string>;
+  inputName: string;
+  registerValidation: object | null;
 }
