@@ -3,7 +3,7 @@ export interface credentials {
   password: string;
 }
 
-export interface loginRes {
+export interface loginResponse {
   success: {
     status: number;
     data: { avatar: string; name: string };
@@ -18,7 +18,7 @@ export interface user {
 
 export interface props {
   setUser: React.Dispatch<
-    React.SetStateAction<null | loginRes["data"] | loginRes["error"]>
+    React.SetStateAction<null | loginResponse["data"] | loginResponse["error"]>
   >;
 }
 
@@ -37,7 +37,7 @@ export interface inputGroup {
   register: UseFormRegister<credentials>;
   placeholder: string | undefined;
   type: string;
-  errorMsg: string;
+  errorMessage: string;
   inputClasses: Array<string>;
   inputName: string;
   registerValidation: object | null;

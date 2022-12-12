@@ -7,7 +7,7 @@ export default function InputGroup({
   register,
   placeholder,
   type,
-  errorMsg,
+  errorMessage,
   inputClasses,
   inputName,
   registerValidation,
@@ -33,8 +33,8 @@ export default function InputGroup({
           src={cross}
         />
       </div>
-      <div className={`${errors ? "show-error" : "hide-error"} error-msg`}>
-        {errorMsg}
+      <div className={`${errors ? "show-error" : "hide-error"} error-message`}>
+        {errorMessage}
       </div>
     </div>
   );

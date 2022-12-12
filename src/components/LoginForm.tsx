@@ -9,8 +9,8 @@ import InputGroup from "./InputGroup";
 
 function LoginForm({ setUser }: props) {
   const inputClasses = ["custom-input", "validate-input"];
-  const buttonClasses = ["btn", "loading-btn"];
-  const [loading, setLoading] = useState(false);
+  const buttonClasses = ["button", "loading-button"];
+  const [isLoading, setIsLoading] = useState(false);
   const {
     handleSubmit,
     register,
@@ -19,7 +19,7 @@ function LoginForm({ setUser }: props) {
   } = useForm<credentials>({ mode: "all" });
 
   const onSubmit = (formValues: credentials) => {
-    setLoading(true);
+    setIsLoading(true);
     login(formValues)
       .then((response) => {
         if (response.status === 401) {
@@ -33,7 +33,7 @@ function LoginForm({ setUser }: props) {
         }
         setUser(response);
       })
-      .finally(() => setLoading(false));
+      .finally(() => setIsLoading(false));
   };
 
   return (
@@ -44,7 +44,7 @@ function LoginForm({ setUser }: props) {
           register={register}
           placeholder="Email"
           type="text"
-          errorMsg="Incorrect email"
+          errorMessage="Incorrect email"
           inputClasses={inputClasses}
           inputName="email"
           registerValidation={{
@@ -57,17 +57,17 @@ function LoginForm({ setUser }: props) {
           register={register}
           placeholder="Password"
           type="password"
-          errorMsg="Incorrect password"
+          errorMessage="Incorrect password"
           inputClasses={inputClasses}
           inputName="password"
           registerValidation={null}
         />
-        {loading ? (
+        {isLoading ? (
           <button className={joinClassNames(buttonClasses)}>
             <img className="loader" src={loadingIcon} />
           </button>
         ) : (
-          <button className="btn">
+          <button className="button">
             Login
             <img src={icon} />
           </button>

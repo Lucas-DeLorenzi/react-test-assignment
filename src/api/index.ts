@@ -1,9 +1,9 @@
-import { credentials, loginRes } from "../types";
+import { credentials, loginResponse } from "../types";
 
 export function login({
   email,
   password,
-}: credentials): Promise<loginRes["success"] | loginRes["error"]> {
+}: credentials): Promise<loginResponse["success"] | loginResponse["error"]> {
   return new Promise((resolve) => {
     setTimeout(() => {
       if (email === "elon@mercdev.com" && password === "twitter") {
