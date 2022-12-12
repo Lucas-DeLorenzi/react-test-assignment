@@ -1,4 +1,5 @@
 import icon from "/Logout.svg";
+import "./screens.css";
 import { profileProps } from "../types";
 import avatar from "/avatar.jpeg";
 import { joinClassNames } from "../utils/joinClassNames";

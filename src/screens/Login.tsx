@@ -1,4 +1,5 @@
 import LoginForm from "../components/LoginForm";
+import "./screens.css";
 import { props } from "../types";
 
 function Login({ setUser }: props) {

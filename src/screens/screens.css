@@ -1,0 +1,73 @@
+.screen-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 25vh;
+  padding: 10%;
+  width: 85%;
+  min-height: 70%;
+  background-color: #ffffff;
+  box-shadow: 0px 6px 24px rgba(29, 31, 38, 0.15);
+  border-radius: 20px;
+}
+
+.screen-container h2 {
+  font-weight: 600;
+  font-size: 18px;
+  line-height: 32px;
+}
+
+.screen-container p {
+  margin-bottom: 15%;
+}
+
+.button {
+  width: 180px;
+  min-height: 48px;
+  background: #2f7bff;
+  box-shadow: 0px 8px 24px -4px rgba(47, 123, 255, 0.5);
+  border-radius: 12px;
+  border: none;
+  color: #ffffff;
+  cursor: pointer;
+}
+
+.button:active {
+  background: #0057ff;
+}
+
+.button img {
+  margin-left: 10px;
+}
+.loading-button {
+  background: #0057ff;
+}
+.loading-button image {
+  margin-top: 3px;
+}
+.logout-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.logout-button img {
+  margin-left: 0;
+  margin-right: 10px;
+}
+
+.avatar-image {
+  margin-bottom: 8px;
+  border-radius: 40px;
+  width: 80px;
+  height: 80px;
+}
+
+.profile {
+  margin-bottom: 25vh;
+}
+
+.greet-user {
+  margin-bottom: 15%;
+}

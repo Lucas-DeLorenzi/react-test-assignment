@@ -1,4 +1,5 @@
 import cross from "/Cross.svg";
+import "./InputGroup.css";
 import { joinClassNames } from "../utils/joinClassNames";
 import { inputGroup } from "../types";
 

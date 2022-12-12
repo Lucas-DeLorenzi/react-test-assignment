@@ -1,4 +1,5 @@
 import icon from "/Arrow.svg";
+import "./LoginForm.css";
 import loadingIcon from "/loader.svg";
 import { useForm } from "react-hook-form";
 import { credentials, props } from "../types";
