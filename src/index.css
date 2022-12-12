@@ -10,16 +10,21 @@
   color: rgba(29, 31, 38, 0.8);
 }
 
+#root{
+  background: linear-gradient(135deg, #ac53ff 0%, #4439ff 100%);
+  display: grid;
+  place-items: center;
+  min-height: 100vh;
+}
+
 .main-container {
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-between;
-  width: 100vw;
-  height: 100vh;
+  width: 100%;
   max-width: 600px;
   min-height: 568px;
-  background: linear-gradient(135deg, #ac53ff 0%, #4439ff 100%);
 }
 
 .logo {
